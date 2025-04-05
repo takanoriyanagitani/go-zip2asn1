@@ -1,0 +1,29 @@
+ZipItem DEFINITIONS ::= BEGIN
+
+  CompressionMethod ::= ENUMERATED {
+    unspecified (0),
+    store       (1),
+    deflate     (2)
+  }
+
+  FileType ::= ENUMERATED {
+    unspecified (0),
+    regular     (1),
+    directory   (2),
+    symlink     (3)
+  }
+
+  Item ::= SEQUENCE {
+    name    UTF8String,
+    comment UTF8String,
+    extraHeader OCTET STRING,
+    rawContent OCTET STRING,
+    compressedSize INTEGER,
+    uncompressedSize INTEGER,
+    modifiedUnixtime INTEGER,
+    crc32 INTEGER,
+    method INTEGER,
+    fileType INTEGER
+  }
+
+END
